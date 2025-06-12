@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://www.bitrix24.com/application">
+    <client_id>jiggle.crm.app</client_id>
+    <version>1.0.0</version>
+    <access>
+        <scope>crm</scope>
+        <scope>user</scope>
+        <scope>app</scope>
+    </access>
+    <name>
+        <en>Jiggle CRM Commission Tracker</en>
+    </name>
+    <description>
+        <en>A comprehensive commission tracking and management system for financial transactions. Sync your commission data with Bitrix24 CRM deals and manage earnings efficiently.</en>
+    </description>
+    <installation>
+        <url>/#/?install=Y</url>
+    </installation>
+    <placements>
+        <placement id="DEFAULT">
+            <title>
+                <en>Jiggle CRM Dashboard</en>
+            </title>
+            <description>
+                <en>Main dashboard for commission tracking and management</en>
+            </description>
+            <url>/</url>
+            <size>
+                <width>1200</width>
+                <height>800</height>
+            </size>
+        </placement>
+        <placement id="CRM_DEAL_LIST_TOOLBAR">
+            <title>
+                <en>Jiggle CRM Sync</en>
+            </title>
+            <description>
+                <en>Quick access to sync commission data from deals</en>
+            </description>
+            <url>/#/crm-sync</url>
+        </placement>
+        <placement id="CRM_DEAL_DETAIL_TAB">
+            <title>
+                <en>Commission Details</en>
+            </title>
+            <description>
+                <en>View commission details for this deal</en>
+            </description>
+            <url>/#/deal-commission</url>
+        </placement>
+    </placements>
+    <options>
+        <option name="color">#2563eb</option>
+        <option name="logo">./jiggle-logo.png</option>
+        <option name="category">business_processes</option>
+        <option name="support_url">https://jiggle-crm.com/support</option>
+        <option name="privacy_url">https://jiggle-crm.com/privacy</option>
+        <option name="terms_url">https://jiggle-crm.com/terms</option>
+    </options>
+    <events>
+        <event name="OnCrmDealAdd">
+            <handler>/#/webhook/deal-add</handler>
+        </event>
+        <event name="OnCrmDealUpdate">
+            <handler>/#/webhook/deal-update</handler>
+        </event>
+        <event name="OnCrmCompanyAdd">
+            <handler>/#/webhook/company-add</handler>
+        </event>
+    </events>
+</application> 
